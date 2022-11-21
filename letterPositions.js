@@ -1,4 +1,4 @@
-//Function which will return all the indices (zero-based positions), as an array, 
+//Function which will return all the indices (zero-based positions), as an array,
 //in the string where each character is found
 //eqArrays and assertArraysEqual used to confirm results are correct
 const eqArrays = function(array1, array2) {
@@ -25,7 +25,6 @@ const assertArraysEqual = function(array1, array2) {
 
 const letterPositions = function(sentence) {
   const results = {};
-  let i = 0;
   for (let i = 0; i < sentence.length; i++) {
     let letter = sentence[i];
     if (letter !== ' ') {
