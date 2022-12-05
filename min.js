@@ -1,5 +1,3 @@
-const { builtinModules } = require("module");
-
 const min = function(numbers) {
   let minIndex = 0;
   for (let i = 1; i < numbers.length; i++) {

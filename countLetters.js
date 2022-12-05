@@ -1,4 +1,5 @@
 const assertEqual = require('./assertEqual');
+
 //Ask if it needs to take into account punctuation??*************
 const countLetters = function(string) {
   const result = {};
