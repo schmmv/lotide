@@ -7,7 +7,7 @@ const assertEqual = function(actual, expected) {
   }
   console.log(strToDisplay);
 };
-
+//Ask if it needs to take into account punctuation??*************
 const countLetters = function(string) {
   const result = {};
   for (let letter of string) {
