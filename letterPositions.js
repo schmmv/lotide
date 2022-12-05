@@ -38,6 +38,8 @@ const letterPositions = function(sentence) {
   return results;
 };
 
+module.exports = letterPositions;
+
 const result1 = letterPositions("lighthouse in the house");
 console.log(result1);
 assertArraysEqual(result1["l"], [0]);

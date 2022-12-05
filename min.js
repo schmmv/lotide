@@ -1,3 +1,5 @@
+const { builtinModules } = require("module");
+
 const min = function(numbers) {
   let minIndex = 0;
   for (let i = 1; i < numbers.length; i++) {
@@ -8,7 +10,7 @@ const min = function(numbers) {
   return numbers[minIndex];
 };
 
-
+module.exports = min;
 /*
  * This is some test runner code that's simply calling our min function defined
  * above to verify it's returning the proper minimum. Do not modify it!

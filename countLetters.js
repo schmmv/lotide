@@ -1,12 +1,4 @@
-const assertEqual = function(actual, expected) {
-  let strToDisplay = "";
-  if (actual === expected) {
-    strToDisplay = `✅✅✅ Assertion Passed: ${actual} === ${expected}`;
-  } else {
-    strToDisplay = `🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`;
-  }
-  console.log(strToDisplay);
-};
+const assertEqual = require('./assertEqual');
 //Ask if it needs to take into account punctuation??*************
 const countLetters = function(string) {
   const result = {};
@@ -21,6 +13,9 @@ const countLetters = function(string) {
   }
   return result;
 };
+
+module.exports = countLetters;
+
 
 const result1 = countLetters("lighthouse in the house");
 console.log(result1);

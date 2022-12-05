@@ -1,12 +1,4 @@
-const assertEqual = function(actual, expected) {
-  let strToDisplay = "";
-  if (actual === expected) {
-    strToDisplay = `✅✅✅ Assertion Passed: ${actual} === ${expected}`;
-  } else {
-    strToDisplay = `🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`;
-  }
-  console.log(strToDisplay);
-};
+const assertEqual = require('./assertEqual');
 
 const findKey = function(object, callback) {
   const keysArr = Object.keys(object);
@@ -16,6 +8,8 @@ const findKey = function(object, callback) {
     }
   }
 };
+
+module.exports = findKey;
 
 //TEST CODE
 const object1 = {
