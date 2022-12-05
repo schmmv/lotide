@@ -24,20 +24,19 @@ const eqArrays = function(array1, array2) {
 //a) they have the same number of keys
 //b) the value for each key in one object is the same for that same key in the other object
 const eqObjects = function(object1, object2) {
-  const keysArr1 = Object.keys(object1);
-  const keysArr2 = Object.keys(object2);
-  
-  if (keysArr1.length !== keysArr2.length) {
+  if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
   }
-  for (let key of keysArr1) {
-    const keyVal1 = object1[key];
-    const keyVal2 = object2[key];
-    if (Array.isArray(keyVal1) && Array.isArray(keyVal2)) {
-      if (!eqArrays(keyVal1, keyVal2)) {
+  for (let key in object1) {
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) { 
+      if (!eqArrays(object1[key], object2[key])) {
         return false;
       }
-    } else if (keyVal1 !== keyVal2) {
+    } else if (typeof(object1[key]) === 'object' || typeof(object2[key]) === 'object') {
+      if (!eqObjects(object1[key], object2[key])) {
+        return false;
+      }
+    } else if (object1[key] !== object2[key]) {
       return false;
     }
   }
@@ -58,3 +57,10 @@ assertEqual(eqObjects(cd, dc), true); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false); // => false
+
+
+//Driver code to test the recursive calling of eqObjects
+assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true); // => true
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false); // => false
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { y: 0, z: { w: 4}}, b: 2 }), false); // => false
+assertEqual(eqObjects({ a: { z: 1 }, b: { y: 2 }}, { a: { z: 1 }, b: 2 }), false); // => false
