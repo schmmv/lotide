@@ -1,17 +1,17 @@
-const assertEqual = require('../assertEqual');
 const eqArrays = require('../eqArrays');
+const { assert } = require('chai');
 
-//TEST CODE
-console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => true
-console.log(eqArrays([1, 2, 3], [3, 2, 1])); // => false
-
-console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
-console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
-
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-
-//testing recursive portion
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true); // => true
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, [4]]]), false); // => false
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false); // => false
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false); // => false
+describe('#eqArrays', () => {
+  it("should return true for [1, 2, 3] and [1, 2, 3]", () => {
+    assert.deepEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+  });
+  it("should return false for ['1', '2', 3] and ['1', '2', '3']", () => {
+    assert.deepEqual(eqArrays(['1', '2', 3], ['1', '2', '3']), false);
+  });
+  it("should return true for [[2, 3], [4]] and [[2, 3], [4]]", () => {
+    assert.deepEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true);
+  });
+  it("should return false for [[2, 3], [4]] and [[2, 3], 4]", () => {
+    assert.deepEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false);
+  });
+});
