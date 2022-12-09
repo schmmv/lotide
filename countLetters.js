@@ -1,6 +1,5 @@
-const assertEqual = require('./assertEqual');
-
-//Ask if it needs to take into account punctuation??*************
+//Counts how many occurences of each letter are in a given string/sentence.
+//Assumes no punctuation in the string
 const countLetters = function(string) {
   const result = {};
   for (let letter of string) {
@@ -16,8 +15,3 @@ const countLetters = function(string) {
 };
 
 module.exports = countLetters;
-
-
-const result1 = countLetters("lighthouse in the house");
-console.log(result1);
-assertEqual(result1["o"], 2);
