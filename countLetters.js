@@ -1,4 +1,5 @@
-//Counts how many occurences of each letter are in a given string/sentence.
+//Function that counts how many occurences of each letter are in a given string/sentence
+//Returns the result as an object
 //Assumes no punctuation in the string
 const countLetters = function(string) {
   const result = {};

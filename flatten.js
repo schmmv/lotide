@@ -1,3 +1,5 @@
+//Function that takes in an array with nested arrays and returns a flattened
+//array containing every element within the given array
 const flatten = function(array) {
   let newArray = [];
   for (let i = 0; i < array.length; i++) {

@@ -1,3 +1,4 @@
+//File to export all Lotide functions as an object
 const head = require('./head');
 const tail = require('./tail');
 const middle = require('./middle');

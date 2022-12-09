@@ -1,9 +1,10 @@
 const eqArrays = require('./eqArrays');
 
+//Function that compares two objects and returns true if they are the same, false otherwise
 //objects are equal if:
 //a) they have the same number of keys
 //b) the value for each key in one object is the same for that same key in the other object
-//can handle nested objects!
+//This function can handle nested objects
 const eqObjects = function(object1, object2) {
   if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
